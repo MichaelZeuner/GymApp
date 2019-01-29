@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Groups</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-select [(ngModel)]="selectedGroup" (change)="selectedGroupChanged($event.target.value)" placeholder="Select Group">
+    <ion-select-option [value]="group" *ngFor="let group of groups">{{group.name}}</ion-select-option>
+  </ion-select>
+
+  <p *ngFor="let time of selectedGroup.traingingTimes">
+    {{time.day}} {{time.startTime}} - {{time.endTime}}
+  </p>
+</ion-content>
+  

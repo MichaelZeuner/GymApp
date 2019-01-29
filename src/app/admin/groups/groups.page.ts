@@ -15,7 +15,7 @@ export class GroupsPage implements OnInit {
     this.groups = [
       {
         name: 'National',
-        coachName: 'Denis'
+        coachName: 'Denis Vachon'
       }
     ];
   }

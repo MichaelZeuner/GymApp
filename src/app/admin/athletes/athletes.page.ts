@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AthletesPage implements OnInit {
 
+  athletes: Array<any>;
+
   constructor() { }
 
   ngOnInit() {
+    this.athletes = [
+      {
+        name: 'Michael Zeuner',
+      }
+    ];
   }
 
 }

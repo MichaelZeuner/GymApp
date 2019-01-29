@@ -11,36 +11,40 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
       title: 'Club',
       url: '/admin/club',
-      icon: 'list'
+      icon: 'clipboard',
+      accessLevel: 'ADMIN'
     },
     {
       title: 'Coaches',
       url: '/admin/coaches',
-      icon: 'list'
+      icon: 'stopwatch',
+      accessLevel: 'ADMIN'
     },
     {
       title: 'Groups',
       url: '/admin/groups',
-      icon: 'list'
+      icon: 'people',
+      accessLevel: 'ADMIN'
     },
     {
       title: 'Athletes',
       url: '/admin/athletes',
-      icon: 'list'
+      icon: 'fitness',
+      accessLevel: 'ADMIN'
+    },
+    {
+      title: 'Groups',
+      url: '/coach/groups',
+      icon: 'people',
+      accessLevel: 'COACH'
     }
   ];
+
+  public user = {
+    accessLevel: 'COACH'
+  }
 
   constructor(
     private platform: Platform,
