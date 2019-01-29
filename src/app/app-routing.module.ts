@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  }
+  },
+  { path: 'admin/club', loadChildren: './admin/club/club.module#ClubPageModule' },
+  { path: 'admin/coaches', loadChildren: './admin/coaches/coaches.module#CoachesPageModule' },
+  { path: 'admin/groups', loadChildren: './admin/groups/groups.module#GroupsPageModule' },
+  { path: 'admin/athletes', loadChildren: './admin/athletes/athletes.module#AthletesPageModule' }
 ];
 
 @NgModule({

@@ -19,6 +19,26 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Club',
+      url: '/admin/club',
+      icon: 'list'
+    },
+    {
+      title: 'Coaches',
+      url: '/admin/coaches',
+      icon: 'list'
+    },
+    {
+      title: 'Groups',
+      url: '/admin/groups',
+      icon: 'list'
+    },
+    {
+      title: 'Athletes',
+      url: '/admin/athletes',
+      icon: 'list'
     }
   ];
 
