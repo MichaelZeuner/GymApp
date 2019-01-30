@@ -39,6 +39,12 @@ export class AppComponent {
       url: '/coach/groups',
       icon: 'people',
       accessLevel: 'COACH'
+    },
+    {
+      title: 'Schedule',
+      url: '/coach/schedule',
+      icon: 'calendar',
+      accessLevel: 'COACH'
     }
   ];
 

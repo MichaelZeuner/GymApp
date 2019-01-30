@@ -9,12 +9,37 @@
 
 <ion-content padding>
 
-  <ion-select [(ngModel)]="selectedGroup" (change)="selectedGroupChanged($event.target.value)" placeholder="Select Group">
-    <ion-select-option [value]="group" *ngFor="let group of groups">{{group.name}}</ion-select-option>
-  </ion-select>
+<ion-row>
+  <ion-col size="{{selectSize}}">
+    <ion-select class="selector" [(ngModel)]="selectedGroup" (ionChange)="selectedGroupChanged($event)" placeholder="Select Group">
+      <ion-select-option [value]="group" *ngFor="let group of groups">{{group.name}}</ion-select-option>
+    </ion-select>
+  </ion-col>
+  <ion-col *ngIf="(selectedGroup | json) != ({} | json)" size="1">
+      <ion-button (click)="showToast('EDIT TIMES')">Edit</ion-button>
+  </ion-col>
+</ion-row>
 
-  <p *ngFor="let time of selectedGroup.traingingTimes">
-    {{time.day}} {{time.startTime}} - {{time.endTime}}
-  </p>
+  
+
+  <ion-row class="vertical-align-content">
+    <ion-col *ngFor="let time of selectedGroup.traingingTimes">
+        {{time.day}} {{time.startTime}} - {{time.endTime}}
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item *ngFor="let athlete of selectedGroup.athletes">
+
+        <ion-label text-wrap>
+          <ion-text>
+            <h2>{{athlete.name}}</h2>
+          </ion-text>
+        </ion-label>
+        <div class="item-note" slot="end">
+          <ion-button color="danger" (click)="showToast('REMOVE ATHLETE')">Remove</ion-button>
+        </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
   

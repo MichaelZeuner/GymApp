@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-groups',
@@ -9,10 +10,24 @@ export class GroupsPage implements OnInit {
 
   groups: Array<any>;
   selectedGroup: any;
+  selectSize: any;
 
-  constructor() { }
+  constructor(private toastCtrl: ToastController) { }
+
+  async showToast(message) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  public selectedGroupChanged(event: any): void {
+    this.selectSize = 11;
+  }
 
   ngOnInit() {
+    this.selectSize = 12;
     this.selectedGroup = {};//{traingingTimes: [{day: 'test'}]};
     this.groups = [
       {
@@ -37,6 +52,19 @@ export class GroupsPage implements OnInit {
             day: 'Thu',
             startTime: '6:00',
             endTime: '8:30'
+          },
+          {
+            day: 'Fri',
+            startTime: '6:00',
+            endTime: '8:30'
+          }
+        ],
+        athletes: [
+          {
+            name: 'Michael Zeuner'
+          },
+          {
+            name: 'Jordyn Miller-Burko'
           }
         ]
       },
@@ -62,6 +90,14 @@ export class GroupsPage implements OnInit {
             day: 'Thu',
             startTime: '4:30',
             endTime: '7:00'
+          }
+        ],
+        athletes: [
+          {
+            name: 'Bella'
+          },
+          {
+            name: 'Libby'
           }
         ]
       }
