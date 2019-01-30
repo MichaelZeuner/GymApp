@@ -10,7 +10,6 @@ export class GroupsPage implements OnInit {
 
   groups: Array<any>;
   selectedGroup: any;
-  selectSize: any;
 
   constructor(private toastCtrl: ToastController) { }
 
@@ -22,12 +21,7 @@ export class GroupsPage implements OnInit {
     toast.present();
   }
 
-  public selectedGroupChanged(event: any): void {
-    this.selectSize = 11;
-  }
-
   ngOnInit() {
-    this.selectSize = 12;
     this.selectedGroup = {};//{traingingTimes: [{day: 'test'}]};
     this.groups = [
       {

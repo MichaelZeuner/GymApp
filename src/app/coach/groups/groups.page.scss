@@ -8,8 +8,29 @@
 
 .vertical-align-content
 {
+    clear: left;
+width: 100%;
      display: flex;
      align-content: center;
      align-items: center;
      text-align: center;
+}
+
+#contentwrapper{
+    float: left;
+    width: 100%;
+}
+    
+#contentcolumn{
+    margin-right: 70px; /*Set right margin to RightColumnWidth*/
+}
+    
+#rightcolumn{
+    float: left;
+    width: 70px; /*Width of right column in pixels*/
+    margin-left: -70px; /*Set left margin to -(RightColumnWidth) */
+}
+
+.w-100 {
+    width: 100%;
 }

@@ -9,16 +9,16 @@
 
 <ion-content padding>
 
-<ion-row>
-  <ion-col size="{{selectSize}}">
-    <ion-select class="selector" [(ngModel)]="selectedGroup" (ionChange)="selectedGroupChanged($event)" placeholder="Select Group">
-      <ion-select-option [value]="group" *ngFor="let group of groups">{{group.name}}</ion-select-option>
-    </ion-select>
-  </ion-col>
-  <ion-col *ngIf="(selectedGroup | json) != ({} | json)" size="1">
-      <ion-button (click)="showToast('EDIT TIMES')">Edit</ion-button>
-  </ion-col>
-</ion-row>
+  <div id="contentwrapper">
+    <div id="contentcolumn">
+      <ion-select class="selector" [(ngModel)]="selectedGroup" placeholder="Select Group">
+        <ion-select-option [value]="group" *ngFor="let group of groups">{{group.name}}</ion-select-option>
+      </ion-select>
+    </div>
+  </div>
+  <div id="rightcolumn" *ngIf="(selectedGroup | json) != ({} | json)">
+    <ion-button class="w-100" size="small" (click)="showToast('EDIT TIMES')">Edit</ion-button>
+  </div>
 
   
 
