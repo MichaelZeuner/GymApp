@@ -1,0 +1,18 @@
+{
+    "items": [
+        {
+            "name": "Thursday, January 24",
+            "children": [
+                {
+                    "name": "National",
+                    "athletes": [
+                        {
+                        "name": "Michael Zeuner",
+                        "record": "LATE"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

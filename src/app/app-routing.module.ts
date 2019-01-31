@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'admin/groups', loadChildren: './admin/groups/groups.module#GroupsPageModule' },
   { path: 'admin/athletes', loadChildren: './admin/athletes/athletes.module#AthletesPageModule' },
   { path: 'coach/groups', loadChildren: './coach/groups/groups.module#GroupsPageModule' },
-  { path: 'coach/schedule', loadChildren: './coach/schedule/schedule.module#SchedulePageModule' }
+  { path: 'coach/schedule', loadChildren: './coach/schedule/schedule.module#SchedulePageModule' },
+  { path: 'coach/attendance', loadChildren: './coach/attendance/attendance.module#AttendancePageModule' }
 ];
 
 @NgModule({

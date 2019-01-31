@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Attendance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let records of attendanceRecords">
+    <ion-card-header>
+      <ion-card-title><b>{{records.date}}</b></ion-card-title>
+    </ion-card-header>
+
+    <ion-card *ngFor="let group of records.groups">
+      <ion-card-header>
+        <ion-card-title><b>{{group.name}}</b></ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let athlete of group.athletes">
+            <ion-label text-wrap>
+              <ion-row>
+                  <ion-col>{{athlete.name}}</ion-col>
+              </ion-row> 
+            </ion-label>
+          <!--
+            <div class="item-note" slot="end">
+              <ion-button (click)="showToast('Edit training')">Edit</ion-button>
+            </div>-->
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    
+  </ion-card>
+
+</ion-content>
