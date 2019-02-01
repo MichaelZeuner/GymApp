@@ -14,22 +14,27 @@ export class AttendancePage {
 
   constructor(private http: HttpClient) {
     this.http.get('assets/attendanceRecords.json').subscribe(res => {
-      this.attendanceRecords = res['items'];
+      this.attendanceRecords = res['days'];
+      console.log(this.attendanceRecords);
       this.attendanceRecords[0].open = true;
+      console.log(this.attendanceRecords[0].open);
     })
    }
 
-   toggleSection(index) {
+  toggleSection(index) {
     this.attendanceRecords[index].open = !this.attendanceRecords[index].open;
+    this.closeOtherSections(index);    
+  }
 
-    if(this.automaticClose && this.attendanceRecords[index].open) {
+  closeOtherSections(index) {
+    if(this.attendanceRecords[index].open) {
       this.attendanceRecords
-          .filter((record, recordIndex) => recordIndex != index)
-          .map(record => record.open = false);
+          .filter((section, sectionIndex) => sectionIndex != index)
+          .map(section => section.open = false);
     }
-   }
+  }
 
-   toggleRecord(index, childIndex) {
-    this.attendanceRecords[index].children[childIndex].open = !this.attendanceRecords[index].children[childIndex].open;
-   }
+  toggleRecord(index, childIndex) {
+    this.attendanceRecords[index].groups[childIndex].open = !this.attendanceRecords[index].groups[childIndex].open;
+  }
 }

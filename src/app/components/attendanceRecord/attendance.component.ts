@@ -2,22 +2,23 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-attendance',
+  selector: 'app-attendance-record',
   templateUrl: './attendance.component.html',
   styleUrls: ['./attendance.component.scss']
 })
 export class AttendanceComponent implements OnInit {
 
-  @Input('record') record: any;
+  @Input('athlete') athlete: any;
 
   constructor(private toastCtrl: ToastController) { }
 
   ngOnInit() {
   }
 
-  async setRecord(record) {
+  async setRecord(athlete) {
     let toast = await this.toastCtrl.create({
-      message: 'Clicked'
+      message: 'Clicked',
+      duration: 2000
     });
     toast.present();
   }

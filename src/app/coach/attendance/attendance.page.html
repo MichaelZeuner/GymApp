@@ -9,21 +9,31 @@
 
 <ion-content padding>
 
-  <ion-list *ngFor="let record of attendanceRecords; let i = index;" class="accordion-list" lines="none" detail="false" no-padding>
+  <ion-list *ngFor="let date of attendanceRecords; let i = index;" class="accordion-list" lines="none" detail="false" no-padding>
 
-    <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': record.open, 'section': !record.open}">
-      <ion-icon slot="start" name="arrow-forward" *ngIf="!record.open"></ion-icon>
-      <ion-icon slot="start" name="arrow-down" *ngIf="record.open"></ion-icon>
-      <ion-label>{{ record.name }}</ion-label>
+    <!-- Header for each date -->
+    <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': date.open, 'section': !date.open}">
+      <ion-icon slot="start" name="arrow-forward" *ngIf="!date.open"></ion-icon>
+      <ion-icon slot="start" name="arrow-down" *ngIf="date.open"></ion-icon>
+      <ion-label>{{ date.date }}</ion-label>
     </ion-item>
 
-    <div *ngIf="record.children && record.open">
-      <ion-list *ngFor="let child of record.children; let j = index;" class="child-list" lines="none">
-        <ion-item tappable (click)="toggleRecord(i, j)" *ngIf="child.children" [ngClass]="{'child-active': child.open, 'child': !child.open}">
-          <ion-icon slot="start" name="add" *ngIf="!child.open"></ion-icon>
-          <ion-icon slot="start" name="close" *ngIf="child.open"></ion-icon>
-          <ion-label>{{ child.name }}</ion-label>
+    <!-- Container for list of groups -->
+    <div *ngIf="date.groups && date.open">
+      <ion-list *ngFor="let group of date.groups; let j = index;" class="child-list" lines="none">
+
+        <!-- Display the header for each group -->
+        <ion-item tappable (click)="toggleRecord(i, j)" [ngClass]="{'child-active': group.open, 'child': !group.open}">
+          <ion-icon slot="start" name="add" *ngIf="!group.open"></ion-icon>
+          <ion-icon slot="start" name="close" *ngIf="group.open"></ion-icon>
+          <ion-label>{{ group.name }}</ion-label>
+
         </ion-item>
+
+        <!-- display the attendance record for each athlete -->
+        <div *ngIf="group.athletes && group.open">
+          <app-attendance-record [athlete]="athlete" *ngFor="let athlete of group.athletes"></app-attendance-record>
+        </div>
       </ion-list>
     </div>
 

@@ -1,11 +1,11 @@
 {
-    "items": [
+    "days": [
         {
-            "name": "Thursday, January 24",
-            "children": [
+            "date": "Thursday, January 24",
+            "groups": [
                 {
                     "name": "National",
-                    "children": [
+                    "athletes": [
                         {
                         "name": "Michael Zeuner",
                         "record": "LATE"
