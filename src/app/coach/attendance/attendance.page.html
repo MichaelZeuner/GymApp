@@ -9,6 +9,27 @@
 
 <ion-content padding>
 
+  <ion-list *ngFor="let record of attendanceRecords; let i = index;" class="accordion-list" lines="none" detail="false" no-padding>
+
+    <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': record.open, 'section': !record.open}">
+      <ion-icon slot="start" name="arrow-forward" *ngIf="!record.open"></ion-icon>
+      <ion-icon slot="start" name="arrow-down" *ngIf="record.open"></ion-icon>
+      <ion-label>{{ record.name }}</ion-label>
+    </ion-item>
+
+    <div *ngIf="record.children && record.open">
+      <ion-list *ngFor="let child of record.children; let j = index;" class="child-list" lines="none">
+        <ion-item tappable (click)="toggleRecord(i, j)" *ngIf="child.children" [ngClass]="{'child-active': child.open, 'child': !child.open}">
+          <ion-icon slot="start" name="add" *ngIf="!child.open"></ion-icon>
+          <ion-icon slot="start" name="close" *ngIf="child.open"></ion-icon>
+          <ion-label>{{ child.name }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </ion-list>
+
+  <!--
   <ion-card *ngFor="let records of attendanceRecords">
     <ion-card-header>
       <ion-card-title><b>{{records.date}}</b></ion-card-title>
@@ -30,13 +51,13 @@
           <!--
             <div class="item-note" slot="end">
               <ion-button (click)="showToast('Edit training')">Edit</ion-button>
-            </div>-->
+            </div>- ->
           </ion-item>
         </ion-list>
       </ion-card-content>
     </ion-card>
 
     
-  </ion-card>
+  </ion-card>-->
 
 </ion-content>

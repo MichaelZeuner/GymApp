@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-attendance',
@@ -6,29 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./attendance.page.scss'],
 })
 
-export class AttendancePage implements OnInit {
+export class AttendancePage {
 
   attendanceRecords: Array<any>;
+  automaticClose = false;
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this.http.get('assets/attendanceRecords.json').subscribe(res => {
+      this.attendanceRecords = res['items'];
+      this.attendanceRecords[0].open = true;
+    })
+   }
 
-  ngOnInit() {
-    this.attendanceRecords = [
-      {
-        date: 'Thursday, January 24',
-        expanded: false,
-        groups: [
-          {
-            name: 'National',
-            athletes: [
-              {
-                name: 'Michael Zeuner',
-                record: 'LATE'
-              }
-            ]
-          }
-        ]
-      }
-    ];
-  }
+   toggleSection(index) {
+    this.attendanceRecords[index].open = !this.attendanceRecords[index].open;
+
+    if(this.automaticClose && this.attendanceRecords[index].open) {
+      this.attendanceRecords
+          .filter((record, recordIndex) => recordIndex != index)
+          .map(record => record.open = false);
+    }
+   }
+
+   toggleRecord(index, childIndex) {
+    this.attendanceRecords[index].children[childIndex].open = !this.attendanceRecords[index].children[childIndex].open;
+   }
 }

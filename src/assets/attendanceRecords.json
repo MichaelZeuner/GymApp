@@ -5,7 +5,7 @@
             "children": [
                 {
                     "name": "National",
-                    "athletes": [
+                    "children": [
                         {
                         "name": "Michael Zeuner",
                         "record": "LATE"
