@@ -4,20 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
   },
-  { path: 'admin/club', loadChildren: './admin/club/club.module#ClubPageModule' },
-  { path: 'admin/coaches', loadChildren: './admin/coaches/coaches.module#CoachesPageModule' },
-  { path: 'admin/groups', loadChildren: './admin/groups/groups.module#GroupsPageModule' },
-  { path: 'admin/athletes', loadChildren: './admin/athletes/athletes.module#AthletesPageModule' },
-  { path: 'coach/groups', loadChildren: './coach/groups/groups.module#GroupsPageModule' },
-  { path: 'coach/schedule', loadChildren: './coach/schedule/schedule.module#SchedulePageModule' },
-  { path: 'coach/attendance', loadChildren: './coach/attendance/attendance.module#AttendancePageModule' }
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+  { path: 'coach-attendance-base', loadChildren: './pages/coach/attendance/coach-attendance-base/coach-attendance-base.module#CoachAttendanceBasePageModule' },
 ];
 
 @NgModule({

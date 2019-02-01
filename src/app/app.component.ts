@@ -9,55 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages = [
-    {
-      title: 'Club',
-      url: '/admin/club',
-      icon: 'clipboard',
-      accessLevel: 'ADMIN'
-    },
-    {
-      title: 'Coaches',
-      url: '/admin/coaches',
-      icon: 'stopwatch',
-      accessLevel: 'ADMIN'
-    },
-    {
-      title: 'Groups',
-      url: '/admin/groups',
-      icon: 'people',
-      accessLevel: 'ADMIN'
-    },
-    {
-      title: 'Athletes',
-      url: '/admin/athletes',
-      icon: 'fitness',
-      accessLevel: 'ADMIN'
-    },
-    {
-      title: 'Groups',
-      url: '/coach/groups',
-      icon: 'people',
-      accessLevel: 'COACH'
-    },
-    {
-      title: 'Schedule',
-      url: '/coach/schedule',
-      icon: 'calendar',
-      accessLevel: 'COACH'
-    },
-    {
-      title: 'Attendance',
-      url: '/coach/attendance',
-      icon: 'calendar',
-      accessLevel: 'COACH'
-    }
-  ];
-
-  public user = {
-    accessLevel: 'COACH'
-  }
-
+  
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

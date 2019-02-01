@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AttendancePage } from './attendance.page';
-import { SharedComponentsModule } from '../../components/shared-components.module';
+import { ViewRecordsPage } from './view-records.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AttendancePage
+    component: ViewRecordsPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    SharedComponentsModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [AttendancePage]
+  declarations: [ViewRecordsPage]
 })
-export class AttendancePageModule {}
+export class ViewRecordsPageModule {}
