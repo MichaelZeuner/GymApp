@@ -12,8 +12,8 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomePageModule'
   },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'inside', 
-    loadChildren: './inside/inside.module#InsideModule' 
+  { path: 'pages', 
+    loadChildren: './pages/pages.module#PagesModule' 
     // Add guard here
   },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
