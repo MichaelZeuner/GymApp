@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Get Started</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-button expand="block" routerLink="/menu/coach-attendance">Login</ion-button>
+
+  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!loginForm.valid">
+      Login
+    </ion-button>
+  </form>
+
+  <ion-button expand="full" (click)="signupUser()" [disabled]="!loginForm.valid">
+    Create a new account
+  </ion-button>
+
+  <ion-button expand="full" (click)="forgotPassword()" [disabled]="!loginForm.controls.email.valid">
+    Forgot password
+  </ion-button>
+
 </ion-content>
