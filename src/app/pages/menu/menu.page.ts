@@ -11,15 +11,15 @@ export class MenuPage implements OnInit {
 
   pages = [
     {
-      title: 'Coach Groups',
+      title: 'Groups',
       url: '/pages/menu/coach-groups'
     },
     {
-      title: 'Coach Schedule',
+      title: 'Schedule',
       url: '/pages/menu/coach-schedule'
     },
     {
-      title: 'Coach Attendance',
+      title: 'Attendance',
       url: '/pages/menu/coach-attendance'
     },
   ]
