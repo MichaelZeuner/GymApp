@@ -19,8 +19,8 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.compose([Validators.email, Validators.required])],
-      password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
+      email: ['michaelzeuner1996@gmail.com', Validators.compose([Validators.email, Validators.required])],
+      password: ['Laurier96', Validators.compose([Validators.minLength(6), Validators.required])]
     });
   }
 
@@ -51,7 +51,6 @@ export class LoginPage implements OnInit {
       .then(data => {
         console.log('User Login Data: ', data);
         loading.dismiss();
-        // this.router.navigateByUrl('/inside/tabs/(home:home)');
       }, err => {
         loading.dismiss().then(() => {
           this.showBasicAlert('Error', err.message);

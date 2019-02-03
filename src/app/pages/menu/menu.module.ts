@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: MenuPage,
-    children: [
+    /*children: [
       {
         path: 'coach-attendance',
         loadChildren: '../coach/attendance/coach-attendance-base/coach-attendance-base.module#CoachAttendanceBasePageModule'
@@ -20,7 +20,7 @@ const routes: Routes = [
         path: 'coach-groups',
         loadChildren: '../coach/groups/groups.module#GroupsPageModule'
       }
-    ]
+    ]*/
   }
 ];
 
