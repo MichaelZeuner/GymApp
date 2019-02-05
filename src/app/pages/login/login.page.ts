@@ -30,10 +30,9 @@ export class LoginPage implements OnInit {
     });
     loading.present();
 
-    this.firebaseService.signup(this.loginForm.value.email, this.loginForm.value.password)
+    this.firebaseService.signup(this.loginForm.value.email, this.loginForm.value.password, 'COACH')
     .then(_ => {
       loading.dismiss();
-      this.showBasicAlert('Success', 'You may now login!');
     }, err => {
       loading.dismiss().then(() => {
         this.showBasicAlert('Error', err.message);
@@ -49,7 +48,7 @@ export class LoginPage implements OnInit {
 
     this.afAuth.auth.signInWithEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password)
       .then(data => {
-        console.log('User Login Data: ', data);
+        this.firebaseService.storeUserForSynchronous();
         loading.dismiss();
       }, err => {
         loading.dismiss().then(() => {

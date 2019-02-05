@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './groups.page.html',
   styleUrls: ['./groups.page.scss'],
 })
-export class GroupsPage implements OnInit {
+export class AdminGroupsPage implements OnInit {
 
   groups: Array<any>;
 
